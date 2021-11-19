@@ -1,7 +1,7 @@
 ﻿
 namespace PlaceWall
 {
-    partial class Form1
+    partial class CoordsForm
     {
         /// <summary>
         /// Required designer variable.
@@ -87,7 +87,6 @@ namespace PlaceWall
             this.startXTextBox.Name = "startXTextBox";
             this.startXTextBox.Size = new System.Drawing.Size(64, 20);
             this.startXTextBox.TabIndex = 5;
-            this.startXTextBox.TextChanged += new System.EventHandler(this.startXTextBox_TextChanged);
             // 
             // startYTextBox
             // 
@@ -95,7 +94,6 @@ namespace PlaceWall
             this.startYTextBox.Name = "startYTextBox";
             this.startYTextBox.Size = new System.Drawing.Size(64, 20);
             this.startYTextBox.TabIndex = 6;
-            this.startYTextBox.TextChanged += new System.EventHandler(this.startYTextBox_TextChanged);
             // 
             // endXTextBox
             // 
@@ -103,7 +101,6 @@ namespace PlaceWall
             this.endXTextBox.Name = "endXTextBox";
             this.endXTextBox.Size = new System.Drawing.Size(64, 20);
             this.endXTextBox.TabIndex = 7;
-            this.endXTextBox.TextChanged += new System.EventHandler(this.endXTextBox_TextChanged);
             // 
             // endYTextBox
             // 
@@ -111,7 +108,6 @@ namespace PlaceWall
             this.endYTextBox.Name = "endYTextBox";
             this.endYTextBox.Size = new System.Drawing.Size(64, 20);
             this.endYTextBox.TabIndex = 8;
-            this.endYTextBox.TextChanged += new System.EventHandler(this.endYTextBox_TextChanged);
             // 
             // label3
             // 
@@ -149,7 +145,7 @@ namespace PlaceWall
             this.label6.TabIndex = 12;
             this.label6.Text = "Y";
             // 
-            // Form1
+            // CoordsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -166,8 +162,8 @@ namespace PlaceWall
             this.Controls.Add(this.placeButton);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cancelButton);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "CoordsForm";
+            this.Text = "Place a wall";
             this.ResumeLayout(false);
             this.PerformLayout();
 

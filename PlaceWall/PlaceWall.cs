@@ -1,39 +1,33 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Autodesk.Revit.ApplicationServices;
 using Autodesk.Revit.Attributes;
 using Autodesk.Revit.DB;
 using Autodesk.Revit.UI;
-using Autodesk.Revit.UI.Selection;
 
 namespace PlaceWall
 {
     [Transaction(TransactionMode.Manual)]
-    public class Class1 : IExternalCommand
+    public class PlaceWall : IExternalCommand
     {
         public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
         {
             UIApplication uiapp = commandData.Application;
             Document doc = uiapp.ActiveUIDocument.Document;
 
-            Form1 form = new Form1(commandData);
+            CoordsForm form = new CoordsForm();
             form.ShowDialog();
 
             try
             {
-                string startXString = form.startX;
+                string startXString = form.StartX;
                 double startX = double.Parse(startXString);
 
-                string startYString = form.startY;
+                string startYString = form.StartY;
                 double startY = double.Parse(startYString);
 
-                string endXString = form.endX;
+                string endXString = form.EndX;
                 double endX = double.Parse(endXString);
 
-                string endYString = form.endY;
+                string endYString = form.EndY;
                 double endY = double.Parse(endYString);
 
                 XYZ start = new XYZ(startX, startY, 0);
