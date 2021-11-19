@@ -22,33 +22,40 @@ namespace PlaceWall
             Form1 form = new Form1(commandData);
             form.ShowDialog();
 
-            string startXString = form.startX;
-            double startX = double.Parse(startXString);
+            try
+            {
+                string startXString = form.startX;
+                double startX = double.Parse(startXString);
 
-            string startYString = form.startY;
-            double startY = double.Parse(startYString);
+                string startYString = form.startY;
+                double startY = double.Parse(startYString);
 
-            string endXString = form.endX;
-            double endX = double.Parse(endXString);
+                string endXString = form.endX;
+                double endX = double.Parse(endXString);
 
-            string endYString = form.endY;
-            double endY = double.Parse(endYString);
+                string endYString = form.endY;
+                double endY = double.Parse(endYString);
 
-            XYZ start = new XYZ(startX, startY, 0);
-            XYZ end = new XYZ(endX, endY, 0);
+                XYZ start = new XYZ(startX, startY, 0);
+                XYZ end = new XYZ(endX, endY, 0);
 
-            Line line = Line.CreateBound(start, end);
+                Line line = Line.CreateBound(start, end);
 
-            FilteredElementCollector levels = new FilteredElementCollector(doc).OfClass(typeof(Level));
-            Level firstLevel = levels.FirstElement() as Level;
+                FilteredElementCollector levels = new FilteredElementCollector(doc).OfClass(typeof(Level));
+                Level firstLevel = levels.FirstElement() as Level;
             
-            Transaction transaction = new Transaction(doc);
-            transaction.Start("PlaceWall");
-            Wall.Create(doc, line, firstLevel.Id, true);
-            transaction.Commit();
+                Transaction transaction = new Transaction(doc);
+                transaction.Start("PlaceWall");
+                Wall.Create(doc, line, firstLevel.Id, true);
+                transaction.Commit();
 
-            return Result.Succeeded;
-            
+                return Result.Succeeded;
+            }
+            catch (Exception e)
+            {
+                message = e.Message;
+                return Result.Failed;
+            }
         }
     }
 }
