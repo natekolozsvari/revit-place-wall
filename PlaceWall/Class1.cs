@@ -19,8 +19,23 @@ namespace PlaceWall
             UIApplication uiapp = commandData.Application;
             Document doc = uiapp.ActiveUIDocument.Document;
 
-            XYZ start = new XYZ(0, 0, 0);
-            XYZ end = new XYZ(20, 0, 0);
+            Form1 form = new Form1(commandData);
+            form.ShowDialog();
+
+            string startXString = form.startX;
+            double startX = double.Parse(startXString);
+
+            string startYString = form.startY;
+            double startY = double.Parse(startYString);
+
+            string endXString = form.endX;
+            double endX = double.Parse(endXString);
+
+            string endYString = form.endY;
+            double endY = double.Parse(endYString);
+
+            XYZ start = new XYZ(startX, startY, 0);
+            XYZ end = new XYZ(endX, endY, 0);
 
             Line line = Line.CreateBound(start, end);
 
